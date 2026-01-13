@@ -177,11 +177,36 @@ exo_shutdown();
 
 ---
 
+---
+
+## End Goal: Architecture Exploration Platform
+
+The ultimate vision is to build an AI-powered platform for architecture exploration:
+
+```
+Traces from CI Runs  →  ML Training  →  Predictions for New Designs
+                                ↓
+                    Architecture Recommendations
+                    Partitioning Optimization  
+                    Regression Detection
+```
+
+### Key Use Cases
+
+1. **Performance Prediction** - "How will ResNet-50 perform on this new NPU design?"
+2. **Architecture Exploration** - "Should we double compute or memory bandwidth?"
+3. **Partitioning** - "How should we distribute this model across CPU/NPU/DMA?"
+4. **Regression Detection** - "Did this firmware change cause a regression?"
+
+---
+
 ## Document Index
 
 | Category | Documents |
 |----------|-----------|
 | **Architecture** | [ARCHITECTURE.md](architecture/ARCHITECTURE.md) |
-| **Design** | [TRACING_LIBRARY.md](design/TRACING_LIBRARY.md), [METRICS_LOGGING.md](design/METRICS_LOGGING.md), [PERFORMANCE_MODELING.md](design/PERFORMANCE_MODELING.md) |
+| **Core Design** | [TRACING_LIBRARY.md](design/TRACING_LIBRARY.md), [METRICS_LOGGING.md](design/METRICS_LOGGING.md), [INSTRUMENTATION_SYSTEM.md](design/INSTRUMENTATION_SYSTEM.md) |
+| **Platform** | [STORAGE_INFRASTRUCTURE.md](design/STORAGE_INFRASTRUCTURE.md), [ARCHITECTURE_EXPLORATION_PLATFORM.md](design/ARCHITECTURE_EXPLORATION_PLATFORM.md), [ML_TRAINING_FRAMEWORK.md](design/ML_TRAINING_FRAMEWORK.md) |
+| **Analysis** | [PERFORMANCE_MODELING.md](design/PERFORMANCE_MODELING.md) |
 | **Specs** | [DATA_FORMATS.md](specs/DATA_FORMATS.md) |
 | **Guides** | [AI_INTEGRATION.md](guides/AI_INTEGRATION.md) |

@@ -7,11 +7,39 @@
 
 ## 🎯 Vision
 
-Apply modern observability principles to firmware development:
-- **Traces** → Understand execution flow across CPU, NPU, DMA, and other hardware units
-- **Metrics** → Track performance counters, utilization, and resource consumption
-- **Logs** → Correlate debug output with execution context
-- **Models** → Build performance models for architecture exploration
+**Transform execution traces into architectural intelligence.**
+
+Exo enables system architects and integrators to make data-driven decisions about hardware and software architecture by:
+
+1. **Collecting** comprehensive traces from CI benchmark runs across multiple SoCs and AI models
+2. **Storing** traces, metrics, and events in a scalable, queryable infrastructure
+3. **Learning** predictive models from historical execution data
+4. **Exploring** architecture alternatives without building hardware
+
+```
+Past Runs → AI Models → Future Predictions
+   │            │              │
+   ▼            ▼              ▼
+Traces    Performance      Architecture
+Metrics   Predictor      Recommendations
+Events    Bottleneck     Partitioning
+Counters  Detector       Optimization
+```
+
+### Data Hierarchy
+```
+CI Benchmark Run
+├── SoC 1 (NPU-v2)
+│   ├── Model A (ResNet-50)
+│   │   ├── Frame 1 → Trace + Metrics + HW Counters
+│   │   ├── Frame 2 → Trace + Metrics + HW Counters
+│   │   └── ...
+│   └── Model B (BERT)
+│       └── ...
+├── SoC 2 (NPU-v3)
+│   └── ...
+└── SoC N
+```
 
 ## ✨ Key Features
 
@@ -28,6 +56,12 @@ Every component can be replaced with alternatives from the ecosystem:
 - Export to any OTLP-compatible backend
 - Replace samplers, exporters, or the entire provider
 
+### Comprehensive Instrumentation
+- **SW Traces** - Spans with parent-child relationships, events, attributes
+- **HW Metrics** - Bus utilization, DMA utilization, NPU cycles, cache metrics
+- **User-defined** - Register custom metrics and events for your platform
+- **Configurable profiles** - Minimal (production) to detailed (debugging)
+
 ### Firmware Optimized
 - Minimal memory footprint (< 16KB RAM for core)
 - No dynamic allocation in hot paths
@@ -40,6 +74,12 @@ Every component can be replaced with alternatives from the ecosystem:
 - Tensor lifecycle tracking
 - Hardware counter correlation
 
+### Architecture Exploration Platform
+- **Train ML models** on collected traces to predict performance
+- **What-if analysis** - Predict performance on new hardware configurations
+- **Regression detection** - Automatically detect performance regressions in CI
+- **Partitioning optimization** - Optimal workload distribution across HW units
+
 ## 📚 Documentation
 
 ### Design Documents
@@ -47,10 +87,27 @@ Every component can be replaced with alternatives from the ecosystem:
 | Document | Description |
 |----------|-------------|
 | [Architecture Overview](docs/architecture/ARCHITECTURE.md) | High-level system architecture and design goals |
+| [Design Summary](docs/DESIGN_SUMMARY.md) | Quick reference for key design decisions |
+
+#### Core Components
+| Document | Description |
+|----------|-------------|
 | [Tracing Library Design](docs/design/TRACING_LIBRARY.md) | Core tracing API and implementation design |
 | [Metrics & Logging](docs/design/METRICS_LOGGING.md) | Metrics and logging subsystem design |
+| [Instrumentation System](docs/design/INSTRUMENTATION_SYSTEM.md) | Comprehensive trace, event, and metric collection |
 | [Data Formats](docs/specs/DATA_FORMATS.md) | Wire formats: Perfetto, OTLP, Chrome Trace |
+
+#### Platform & Infrastructure
+| Document | Description |
+|----------|-------------|
+| [Storage Infrastructure](docs/design/STORAGE_INFRASTRUCTURE.md) | Scalable storage for traces, metrics, and ML features |
+| [Architecture Exploration Platform](docs/design/ARCHITECTURE_EXPLORATION_PLATFORM.md) | AI-powered system architecture exploration |
+| [ML Training Framework](docs/design/ML_TRAINING_FRAMEWORK.md) | Training predictive models on execution traces |
 | [Performance Modeling](docs/design/PERFORMANCE_MODELING.md) | Building performance models from traces |
+
+#### Guides
+| Document | Description |
+|----------|-------------|
 | [AI Integration Guide](docs/guides/AI_INTEGRATION.md) | Integrating with AI frameworks and engines |
 
 ## 🏗️ Project Structure
